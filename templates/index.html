@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mirobot Order Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">
+      <h1>Mirobot Order Dashboard</h1>
+      <p class="sub">WebSocket 실시간 상태 모니터링</p>
+    </div>
+
+    <div class="status">
+      <span id="wsBadge" class="badge">WS: 연결중...</span>
+      <span id="estopBadge" class="badge warn">ESTOP: ?</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Totals (누적 주문)</h2>
+      <div class="totals">
+        <div class="pill red">Red: <b id="tRed">0</b></div>
+        <div class="pill green">Green: <b id="tGreen">0</b></div>
+        <div class="pill blue">Blue: <b id="tBlue">0</b></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>Orders (최대 5개 표시)</h2>
+        <div class="row-actions">
+          <button id="btnStart" class="btn">START</button>
+          <button id="btnEstop" class="btn danger">ESTOP</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table" id="orderTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Tower</th>
+              <th>R</th>
+              <th>G</th>
+              <th>B</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody id="orderBody">
+            <!-- JS로 채움 -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Debug (서버 payload)</h2>
+      <pre id="debugBox" class="pre"></pre>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
