@@ -74,7 +74,7 @@ http://localhost:8000
 
 ```bash
 export DIRECT_ROBOT_FILL_ONLY=1
-python3 main_test.py
+uvicorn main_test:app --host 0.0.0.0 --port 8000
 ```
 
 테스트 모드를 끄려면 환경변수를 제거하거나 `0`으로 설정하세요.
